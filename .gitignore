@@ -1,0 +1,8 @@
+my-django-project/newsapp/migrations/*
+*.pyc
+*.sqlite3
+*.log
+*.env
+my-django-project/data/
+.venv/
+!my-django-project/newsapp/migrations/__init__.py

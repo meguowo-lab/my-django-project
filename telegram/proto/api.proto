@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service Api{
+    rpc send_news(News) returns (Response){}
+}
+
+message News{
+    string title = 1;
+    string author = 2;
+    string url = 3;
+    bytes image = 4;
+}
+
+message Response{
+    string message = 1;
+}

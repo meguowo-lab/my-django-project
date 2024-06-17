@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{post.author}}</h1>
+    <p>{{post.created_at}}</p>
+    <p>{{post.body}}</p>
+    <p>add comment:</p>
+    {% if user.is_authenticated %}
+        <form method="post", action="{% url 'comments_create' post.id %}">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit">
+        </form>
+
+    {% else %}
+        <p>please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to write comments</p>
+    {% endif %}
+
+    <h1>Comments:</h1>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <h1>{{comment.author}}</h1>
+                <p>{{comment.created_at}}</p>
+                <p>{{comment.body}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

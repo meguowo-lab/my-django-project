@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>NEWS</h1>
+    {% for post in news %}
+        <div>
+            <p>{{post.title}}</p>
+            <a href="{% url 'news_get' post.id %}"> show more </a>
+        </div>
+    {% endfor %}
+{% endblock %}
